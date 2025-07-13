@@ -13,10 +13,11 @@ class Jogador:
     
     @energia.setter
     def energia(self, valor):
-        if valor >= 0:
-            self.__energia = valor
+        
+        if valor < 0:
+            self.__energia = 0
         else:
-            print("Energia não pode ser negativa.")
+            self.__energia = valor
 
             
     def atacar(self, inimigo):
