@@ -17,11 +17,17 @@ class Pontuacao:
         if valor < 0:
             raise ValueError("A pontuação não pode ser negativa.") # O raise é usado para gerar uma excessão
         self.__pontos = valor
+        
 class Jogador:
-    def __init__(self,nome, energia, pontuacao = Pontuacao(0)):
+    def __init__(self, nome, energia, pontuacao=None):
         self.nome = nome
         self.__energia = energia
-        self.pontuacao = pontuacao
+        self.pontuacao = pontuacao if pontuacao else Pontuacao()
+        # Dentro do método, é feita uma verificação:
+        # Se o usuário passar uma pontuação, ela será usada.
+        # Caso contrário (pontuacao == None), será criada uma nova instância de Pontuacao().
+        # Agora se for criado mais de um objeto jogador, a pontoação é diferente.
+
 
     @property
     def energia(self):

@@ -14,10 +14,15 @@ class Pontuacao:
         return f"Pontos: {self.__pontos}"
 
 class Jogador:
-    def __init__(self,nome, energia, pontuacao = Pontuacao()):
+    def __init__(self, nome, energia, pontuacao=None):
         self.nome = nome
         self.__energia = energia
-        self.pontuacao = pontuacao
+        self.pontuacao = pontuacao if pontuacao else Pontuacao()
+        # Dentro do método, é feita uma verificação:
+        # Se o usuário passar uma pontuação, ela será usada.
+        # Caso contrário (pontuacao == None), será criada uma nova instância de Pontuacao().
+        # Agora se for criado mais de um objeto jogador, a pontoação é diferente.
+
 
     @property
     def energia(self):
@@ -45,7 +50,7 @@ class Jogador:
 
         derrotado = inimigo.tomar_dano(dano)
         if derrotado:
-            self.pontos.adicionar_pontos(10)
+            self.pontuacao.adicionar_pontos(10)
         
     def descansar(self):
         if self.__energia + 20 > 100:
@@ -74,10 +79,10 @@ class Jogador:
     
 
     
-jogador1 = Jogador("Irmão do jorel", 100, 0)
+jogador1 = Jogador("Irmão do jorel", 100)
 print(jogador1.nome)
 print(jogador1.energia)
-print(jogador1.pontuacao)
+print(jogador1.pontuacao.mostrar_pontos())
 
 
 

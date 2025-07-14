@@ -5,7 +5,7 @@ import random
 class Jogador:
     def __init__(self, energia):
         self.__energia = energia
-        self.pontos = Pontuacao(0)
+        self.pontuacao = Pontuacao(0)
 
     @property
     def energia(self):
@@ -33,7 +33,7 @@ class Jogador:
 
         derrotado = inimigo.tomar_dano(dano)
         if derrotado:
-            self.pontos.adicionar_pontos(10)
+            self.pontuacao.adicionar_pontos(10)
         
     def descansar(self):
         if self.__energia + 20 > 100:
