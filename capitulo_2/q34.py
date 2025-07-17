@@ -31,6 +31,9 @@ class FaseFloresta(Fase):
         
         #O método join() em Python é usado para juntar (ou concatenar) os elementos de uma lista 
         #(ou outro iterável de strings) em uma única string, usando um separador específico.
+
+    def gerar_inimigos(self):
+        return ["Goblin da Névoa", "Lobo Fantasma", "Espírito da Árvore\n"]
        
     
 
@@ -46,7 +49,7 @@ class FaseDeserto(Fase):
         return f"Ambiente de deserto com perigos como {', '.join(self.perigos)}, {oasis_info}."
     
     def gerar_inimigos(self):
-        return ["Escorpião Gigante", "Múmia do Deserto", "Serpente de Areia"]
+        return ["Escorpião Gigante", "Múmia do Deserto", "Serpente de Areia\n"]
 
 # Exemplo de uso
 fase1 = FaseFloresta("Média")
@@ -54,6 +57,7 @@ fase2 = FaseDeserto("Alta")
 
 print(fase1.descricao())
 print(fase1.ambiente())
+print("Inimigos:", ", ".join(fase1.gerar_inimigos()))
 
 print(fase2.descricao())
 print(fase2.ambiente())

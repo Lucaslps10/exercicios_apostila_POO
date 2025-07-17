@@ -1,12 +1,13 @@
 # Arquivo capitulo_2/q21.py
 
+import random;
+
 class Personagem:
     def __init__(self, nome, vida):
         self.nome = nome
         self.__vida = vida
         self.__defesa = 0
-
-
+    
     @property
     def vida(self):
         return self.__vida
@@ -26,13 +27,29 @@ class Personagem:
            
         else:
             print("Valor tem que estar entre 0 e 100.")
-        
+    
+    def falar(self):
+        print(f"Meu nome é {self.nome}")
+    
+    def tomar_dano(self, dano):
+        self.__vida -= dano
+        if self.__vida <= 0:
+            self.__vida = 0
+            print(f"{self.nome} foi derrotado")
 
+        else:
+            print(f"{self.nome} tomou {dano} de dano e tem {self.__vida} de vida restante!")
 
-p = Personagem("Sky", 100)
-print(p.nome)
-print(p.vida)
-print(p.defesa)
+    def atacar(self, alvo):
+        dano = random.randint(5, 20)
+        print(f"{self.nome} atacou e causou {dano} de dano!")
+        alvo.tomar_dano(dano)
+
+personagem = Personagem("Gasparzinho", 100)
+print(personagem.nome)
+print(personagem.vida)
+print(personagem.defesa)
+personagem.falar()
 
 
 
