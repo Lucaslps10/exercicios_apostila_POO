@@ -84,8 +84,7 @@ print(jogador1.energia)
 print(jogador1.pontuacao.mostrar_pontos())
 
 j2 = Jogador("Lucas", 80)
-j3 = Jogador("Jales
-", 90)
+j3 = Jogador("Jales", 90)
 
 print(f"Total de jogadores criados: {Jogador.total_jogadores}")  # Saída: 3
 
